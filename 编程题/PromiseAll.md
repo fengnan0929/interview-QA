@@ -28,25 +28,24 @@ all() 的返回值也是新的 Promise 对象
 
 ### 实现 Promise.all 方法
 ```js
-function promiseAll(promises) {
-  return new Promise(function(resolve, reject) {
-    if(isArray(promises)) {
-        return reject(new Error('Promises must be an array'))
-    }
-    var resolvedCount = 0;
-    var promiseNum = promises.length;
-    var resloveValue = [];
-    for(let i = 0; i < promiseNum; i++) {
-        Promise.resolve(promises[i]).then((value) => {
-            resloveValue[i] = value;
-            resolvedCount++;
-            if(resolvedCount === promiseNum) {
-                return resloveValue;
-            }
-        }, (reason) => {
-            return reject(reason);
-        })
-    }
-  })
-}
+let promiseAll = arr => {
+    let res = [];
+    return new Promise((resolve,reject) => {
+        let i = 0;
+        next();
+
+        function next() {
+            arr[i].then((response) => {
+                res.push(response);
+                i++;
+                if (i == arr.length) {
+                    resolve(res);
+                }
+                else {
+                    next();
+                }
+            }).catch((err)=>reject(err));
+        }
+    })
+};
 ```

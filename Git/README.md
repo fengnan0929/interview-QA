@@ -1,6 +1,5 @@
 # Git
 
-
 ### Git 快照
 
 > Every time you commit, or save the state of your project in Git, it basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot.

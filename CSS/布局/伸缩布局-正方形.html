@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-flow: column;
+            min-height: 100vh;
+            height: 100%;
+        }
+
+        .father {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 50%;
+            height: 100%;
+            align-content: space-between;
+        }
+
+        .son {
+            width: 48%;
+            background-color: #FF7F61;
+        }
+
+        .son:before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+            border: 1px solid black;
+        }
+
+        .son .inner {
+            margin-top: -100%;
+        }
+    </style>
+</head>
+<body>
+<div class="father">
+    <div class="son">
+        <div class="inner bbb" id="inner">
+            <p>hello</p>
+        </div>
+    </div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+    <div class="son"></div>
+</div>
+</body>
+</html>

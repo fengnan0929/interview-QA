@@ -26,15 +26,17 @@ sleep(1000).next().value.then(() => {
 })
 ```
 
-### async
+### async+await
 ```js
-async function sleep(time, func) {
-    await new Promise(resolve => setTimeout(resolve, time))
-    return func()
+function sleep(time){
+    return new Promise((resolve)=>{
+        setTimeout(resolve,time);
+    })
 }
-sleep(1000, () => {
+async function sleepsometime(time){
+    await sleep(time);
     console.log(1)
-})
+}
 ```
 
 ### ES5

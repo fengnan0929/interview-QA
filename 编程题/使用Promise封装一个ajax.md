@@ -78,3 +78,28 @@ const ajax = (obj) => {
     })
 }
 ```
+#### 简易版
+```javascript
+/**
+* Promise封装的ajax
+* @param method
+* @param url
+* @param data
+* @returns {Promise<any>}
+*/
+function fetch(method='get',url='',data=null){
+    return new Promise((resolve,reject)=>{
+        let xhr = new XMLHttpRequest();
+        xhr.open(method,url,true);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4 && xhr.status ===200){
+                resolve(xhr.response);
+            }
+            else{
+                reject(xhr.status);
+            }
+        };
+        xhr.send(data);
+    });
+}
+```

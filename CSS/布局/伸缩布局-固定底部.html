@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-flow: column;
+            min-height: 100vh;
+            height: 100%;
+        }
+
+        .content {
+            flex: 1 1 auto;
+            background-color: palegreen;
+        }
+
+        .footer {
+            flex: 0 0 100px;
+            background-color: #FF7F61;
+        }
+
+        .content {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+</div>
+<div class="footer"></div>
+</body>
+</html>

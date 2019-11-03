@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+        ul{
+           list-style: none;
+        }
+        .fixed{
+            position: relative;
+            margin:50px 0 0 100px;
+        }
+        .floatLeft{
+            position: fixed;
+            left:0;
+            top:20px;
+        }
+        .display{
+            position:absolute;
+            top:50px;
+            left:150px;
+            width:800px;
+            height:  600px;
+            background-color: palegreen;
+        }
+        .display:target{
+           z-index:2
+        }
+        .left{
+            width:100%;
+            height: 1000px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul class="floatLeft">
+        <li><a href="#1">这里是1</a></li>
+        <li><a href="#2">这里是2</a></li>
+        <li><a href="#3">这里是3</a></li>
+    </ul>
+    <ul class="fixed">
+        <li id="1" class ='display' style="z-index: 1; overflow:scroll;">
+            <div class="left">
+                <span>hello Feng Nan</span>
+                <br/>
+            </div>
+            <div class="right">
+            </div>
+        </li>
+        <li id="2" class ='display'>click2</li>
+        <li id="3" class ='display'>click3</li>
+    </ul>
+</div>
+<script>
+    /*let timer = null;
+    window.onresize = function () {
+        if(!timer){
+            timer = setTimeout(function () {
+                console.log(timer);
+                timer = null;
+            },1000)
+        }
+    }*/
+    function throttle(func,waitTime){
+        let timer =null;
+        return function () {
+            if(!timer){
+                timer = setTimeout(function () {
+                    func.apply(this);
+                    timer = null;
+                },waitTime)
+            }
+        }
+    }
+
+    /* let timer = null;
+        window.onresize = function () {
+            if(timer){
+                clearTimeout(timer);
+            }
+            timer = setTimeout(function () {
+                console.log(timer);
+            },1000)
+    }*/
+    function debounce(func,waitTime){
+        let timer=null;
+        return function(){
+            if(timer){
+                clearTimeout(timer);
+            }
+            timer = setTimeout(func,waitTime)
+        }
+    }
+
+    window.onresize = throttle(()=>console.log(1),1000);
+
+    function scrollLoad(){
+        let screenHeight = window.innerHeight;
+        let scrollY = window.scrollY;
+        let documentHeight = document.body.clientHeight;
+        let offsetTop  = $('element').offsetTop;
+
+        if( scrollY + screenHeight > documentHeight - 10){
+            fetch('get','url').then(console.log);
+        }
+    }
+
+
+    function sleep(time){
+        return new Promise((resolve)=>{
+            setTimeout(resolve,time);
+        })
+    }
+    async function sleepsometime(time){
+        await sleep(time);
+        alert(1);
+    }
+
+    sleepsometime(5000);
+</script>
+</body>
+</html>
