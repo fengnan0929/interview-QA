@@ -1,7 +1,5 @@
-# this指向
+### this指向
 
-### 头条一面
-请分别写出下面题目的答案。
 ```js
 function Foo() {
     getName = function() {
@@ -55,7 +53,7 @@ d()     // window
 
 
 
-### this判断 下面输出为多少？
+### this判断 
 
 ```js
 var name1 = 1;
@@ -81,3 +79,23 @@ test().fn() // ?
 
  - 如果在绑定fn的时候使用了function，那么答案会是 'jack'
  - 如果第一行的 var 改为了 let，那么答案会是 undefind， 因为let不会挂到window上
+
+
+### 作用域
+```js
+function func() {
+  function a () {
+    console.log(b)
+  }
+
+  a();
+  const b = 'bbb'
+}
+
+func()
+```
+
+上面代码会输出什么？
+
+答案：
+>  ReferenceError: Cannot access 'b' before initialization
