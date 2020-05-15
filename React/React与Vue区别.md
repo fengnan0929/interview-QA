@@ -11,7 +11,7 @@
    - react JSX
  - api
    - vue 多，计算属性，watch 这种神器
-   - react 少，更多功能留给社区，比如写个函数还有bind以下
+   - react 少，更多功能留给社区，比如写个函数还要bind一下
  - 应用
    - vue 适合面向用户的，复杂度稍低一些的
    - react 复杂的

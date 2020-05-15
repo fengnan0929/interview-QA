@@ -38,7 +38,7 @@ session一个场景是购物车，添加了商品之后客户端处可以知道�
 
  - 存放在服务器的一种用来存放用户数据的类似HashTable的结构
  - 浏览器第一次发送请求时，服务器自动生成了HashTable和SessionID来唯一标识这个hash表，并将sessionID存放在cookie中通过响应发送到浏览器。浏览器第二次发送请求会将前一次服务器响应中的sessionID随着cookie发送到服务器上，服务器从请求中提取sessionID，并和保存的所有sessionID进行对比，找到这个用户对应的hash表。
-   - 一般这个值是有时间限制的，超时后销毁，默认30min
+ - 一般这个值是有时间限制的，超时后销毁，默认30min
  - 当用户在应用程序的web页面间挑转时，存储在session对象中的变量不会丢失而是在整个用户会话中一直存在下去。
  - session依赖于cookie，因为sessionID是存放在cookie中的。
 

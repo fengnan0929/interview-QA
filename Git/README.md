@@ -223,7 +223,14 @@ Git 使用两种主要类型的标签：轻量标签（lightweight）与附注�
  - 删远程
    - `git push <remote> :refs/tags/<tagname>`
 
-
-
 ### Git 别名
 可为一些操作器别名，例如： `git config --global alias.last 'log -1 HEAD'`后， 使用`git last` 就可以看到最后一次提交
+
+### Git rebase
+- 合并多次提交记录 git rebase -i  HEAD^4
+- 合并分支，但不污染commit记录，不把分支的commit记录合并到主分支，更清晰
+
+### Git 版本回退
+- 撤销commit,保留add `git reset --soft head^`
+- 撤销commit和add `git reset --hard head^`
+

@@ -10,7 +10,6 @@ function deepTravel(tree, nodeList = []) {
   }
   return nodeList;
 }
-
 /**
  * 非递归式 遍历tree
  * 

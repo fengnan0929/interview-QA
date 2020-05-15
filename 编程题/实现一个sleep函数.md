@@ -4,7 +4,7 @@
 ### Promise
 ```js
 const sleep = time =>{
-    new Promise((resolve) => {
+    return new Promise((resolve) => {
         setTimeout(resolve, time)
     })
 }
